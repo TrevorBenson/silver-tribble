@@ -2,9 +2,6 @@ name: Image base Stage1
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'containers/nym-base/nym-node-latest.txt'
 
 jobs:
   build:
