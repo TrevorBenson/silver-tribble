@@ -2,7 +2,9 @@ name: Image base Stage1
 
 on:
   workflow_dispatch:
-
+  push:
+    paths:
+      - 'containers/nym-base/stage1'
 jobs:
   build:
     runs-on: ubuntu-latest
