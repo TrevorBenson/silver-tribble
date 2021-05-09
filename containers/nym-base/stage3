@@ -6,6 +6,7 @@ RUN WASMD_VERSION=v0.14.1 && \
     cd wasmd && \
     git checkout $WASMD_VERSION && \
     mkdir build && \
+    export GOROOT=/usr/local/go && \
     go build -o build/nymd \
              -mod=readonly \
              -tags "netgo,ledger" \
