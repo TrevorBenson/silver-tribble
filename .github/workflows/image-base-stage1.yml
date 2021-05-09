@@ -26,5 +26,5 @@ jobs:
         -H "Accept: application/vnd.github.everest-preview+json" \
         -H "Content-Type: application/json" \
         https://api.github.com/repos/TrevorBenson/silver-tribble/actions/workflows/image-base-stage2.yml/dispatches \
-        --data '{"ref": "master"}'
+        --data '{"ref": "main"}'
         
