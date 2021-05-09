@@ -1,0 +1,3 @@
+FROM centos:centos8.3.2011
+
+COPY --from=chaincrucial/nym-base:stage2 /root/.cargo/bin/* /usr/local/bin/
