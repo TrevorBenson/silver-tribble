@@ -2,10 +2,10 @@ FROM centos:centos8.3.2011
 
 ENV PATH=/root/.cargo/bin
 
-RUN dnf -y install epel-release jq pkgconf git gcc gcc-c++ openssl-devel && \
+RUN /bin/bash -c "dnf -y install epel-release jq pkgconf git gcc gcc-c++ openssl-devel && \
     dnf -y groupinstall Development\ Tools
     dnf -y clean all && \
-    rm -rf /var/cache/yum
+    rm -rf /var/cache/yum"
 
-RUN curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y && \
-    rustup -y update && \
+RUN /bin/bash -c "curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y && \
+    rustup -y update"
