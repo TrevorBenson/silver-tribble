@@ -6,7 +6,7 @@ RUN dnf -y install epel-release jq pkgconf git gcc gcc-c++ openssl-devel wget &&
     tar -xzf go1.15.2.linux-amd64.tar.gz && \
     mv go /usr/local && \
     dnf -y clean all && \
-    rm -rf /var/cache/yum
+    rm -rf /var/cache/yum ; rm -rf go1.15.2.linux-amd64.tar.gz
 
 RUN curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y && \
     source $HOME/.cargo/env && \
