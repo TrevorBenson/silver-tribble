@@ -1,5 +1,5 @@
 FROM centos:centos8.3.2011
 
-RUN dnf install epel-release && \
+RUN dnf -y install epel-release && \
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh && \
-    rustip -y update
+    rustup -y update
