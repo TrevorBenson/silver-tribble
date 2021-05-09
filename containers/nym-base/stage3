@@ -19,7 +19,6 @@ RUN WASMD_VERSION=v0.14.1 && \
              -trimpath ./cmd/wasmd  # noqa line-length
 
 RUN cd wasmd && \
-    ./build/nymd
-
-RUN WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }') && \
+    ./build/nymd && \
+    WASMVM_SO=$(ldd build/nymd | grep libwasmvm.so | awk '{ print $3 }') && \
     ls $WASMVM_SO
