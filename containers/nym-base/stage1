@@ -1,6 +1,6 @@
 FROM centos:centos8.3.2011
 
-RUN dnf -y install epel-release jq pkgconf git gcc gcc-c++ openssl-devel && \
+RUN dnf -y install epel-release jq pkgconf git gcc gcc-c++ openssl-devel wget && \
     dnf -y groupinstall Development\ Tools && \
     wget https://dl.google.com/go/go1.15.2.linux-amd64.tar.gz && \
     tar -xzf go1.15.2.linux-amd64.tar.gz && \
