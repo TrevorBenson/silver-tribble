@@ -1,6 +1,6 @@
 FROM centos:centos8.3.2011
 
-ENV PATH=/root/.cargo/bin
+ENV PATH=/root/.cargo/bin:${PATH}
 
 RUN dnf -y install epel-release jq pkgconf git gcc gcc-c++ openssl-devel && \
     dnf -y groupinstall Development\ Tools && \
