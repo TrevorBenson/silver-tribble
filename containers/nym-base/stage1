@@ -1,7 +1,11 @@
 FROM centos:centos8.3.2011
 
-RUN dnf -y install epel-release && \
-    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y && \
-    ~/.cargo/bin/rustup -y update && \
+ENV PATH=/root/.cargo/bin
+
+RUN dnf -y install epel-release jq pkgconf git gcc gcc-c++ openssl-devel && \
+    dnf -y groupinstall Development\ Tools
     yum -y clean all && \
     rm -rf /var/cache/yum
+
+RUN curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y && \
+    rustup -y update && \
