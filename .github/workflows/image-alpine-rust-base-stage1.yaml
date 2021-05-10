@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'containers/nym-base/alpine-rustlang-stage1'
+      - 'containers/nym-base/alpine-rust-stage1'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,10 +15,10 @@ jobs:
         docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
     - name: Installing dependencies and build tools
       run: |
-        docker build . --file containers/nym-base/alpine-rustlang-stage1 --compress --tag chaincrucial/nym-base:alpine-rustlang-stage1
-    - name: container push Alpine rustlang base stage 1
+        docker build . --file containers/nym-base/alpine-rust-stage1 --compress --tag chaincrucial/nym-base:alpine-rust-stage1
+    - name: container push Alpine rust base stage 1
       run: |
-        docker push chaincrucial/nym-base:alpine-rustlang-stage1
+        docker push chaincrucial/nym-base:alpine-rust-stage1
     - name: container trigger dispatch Alpine node stage 1
       run: |
         curl -XPOST \
