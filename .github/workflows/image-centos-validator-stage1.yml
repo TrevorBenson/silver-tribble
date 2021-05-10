@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'containers/nym-validator/latest.txt'
+      - 'containers/nym-validator/centos-stage1'
   workflow_dispatch:
 
 jobs:
