@@ -1,0 +1,30 @@
+name: Image validator Stage1
+
+on:
+  push:
+    paths:
+      - 'containers/nym-validator/latest.txt'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: container login
+      run: |
+        docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+    - name: Compiling new validator software
+      run: |
+        docker build . --file containers/nym-validator/stage1 --compress --tag chaincrucial/nym-validator:stage1
+    - name: docker push validator stage 1
+      run: |
+        docker push chaincrucial/nym-validator:stage1
+    - name: docker dispatch stage 2
+      run: |
+        curl -XPOST \
+        -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+        -H 'Accept: application/vnd.github.everest-preview+json' \
+        -H 'Content-Type: application/json' \
+        https://api.github.com/repos/TrevorBenson/silver-tribble/actions/workflows/image-validator-stage2.yml/dispatches \
+        --data '{"ref": "main"}'
