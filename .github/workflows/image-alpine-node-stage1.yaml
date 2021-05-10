@@ -1,0 +1,31 @@
+name: Image Alpine Node Stage1
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'containers/nym-base/alpine-rust-stage1'
+      - 'containers/nym-node/alpine-stage1'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: container login
+      run: |
+        docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+    - name: Installing dependencies and build tools
+      run: |
+        docker build . --file containers/nym-node/alpine-stage1 --compress --tag chaincrucial/nym-node:alpine-stage1
+    - name: container push base stage 1
+      run: |
+        docker push chaincrucial/nym-node:alpine-stage1
+    - name: container trigger dispatch Alpine node stage 2
+      run: |
+        curl -XPOST \
+        -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+        -H 'Accept: application/vnd.github.everest-preview+json' \
+        -H 'Content-Type: application/json' \
+        https://api.github.com/repos/TrevorBenson/silver-tribble/actions/workflows/image-alpine-node-stage2.yml/dispatches \
+        --data '{"ref": "main"}'
