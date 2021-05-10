@@ -1,0 +1,19 @@
+name: Image CentOS node Stage2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: container login
+      run: |
+        docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+    - name: Compiling new node software
+      run: |
+        docker build . --file containers/nym-node/centos-stage2 --compress --tag chaincrucial/nym-node:centos-stage2
+    - name: docker push node stage 2
+      run: |
+        docker push chaincrucial/nym-node:centos-stage2
