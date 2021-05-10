@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'containers/nym-node/latest.txt'
+      - 'containers/nym-node/apline-stage1'
   workflow_dispatch:
 
 jobs:
