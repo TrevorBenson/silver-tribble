@@ -1,8 +1,8 @@
 FROM centos:centos8.3.2011
 
-COPY --from=chaincruial/nym-node:centos-stage1 /nym/target/release/nym-client /usr/local/bin/
-COPY --from=chaincruial/nym-node:centos-stage1 /nym/target/release/nym-gateway /usr/local/bin/
-COPY --from=chaincruial/nym-node:centos-stage1 /nym/target/release/nym-mixnode /usr/local/bin/
-COPY --from=chaincruial/nym-node:centos-stage1 /nym/target/release/nym-network-monitor /usr/local/bin/
-COPY --from=chaincruial/nym-node:centos-stage1 /nym/target/release/nym-network-requester /usr/local/bin/
-COPY --from=chaincruial/nym-node:centos-stage1 /nym/target/release/nym-socks5-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:centos-stage1 /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:centos-stage1 /nym/target/release/nym-gateway /usr/local/bin/
+COPY --from=chaincrucial/nym-node:centos-stage1 /nym/target/release/nym-mixnode /usr/local/bin/
+COPY --from=chaincrucial/nym-node:centos-stage1 /nym/target/release/nym-network-monitor /usr/local/bin/
+COPY --from=chaincrucial/nym-node:centos-stage1 /nym/target/release/nym-network-requester /usr/local/bin/
+COPY --from=chaincrucial/nym-node:centos-stage1 /nym/target/release/nym-socks5-client /usr/local/bin/
