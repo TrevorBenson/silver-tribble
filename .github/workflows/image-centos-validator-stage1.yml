@@ -1,4 +1,4 @@
-name: Image validator Stage1
+name: Image CentOS validator Stage1
 
 on:
   push:
