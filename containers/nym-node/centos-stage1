@@ -1,4 +1,4 @@
-FROM chaincrucial/nym-base:stage1
+FROM chaincrucial/nym-base:centos-stage1
 
 RUN git clone https://github.com/nymtech/nym.git && \
     cd nym && \
