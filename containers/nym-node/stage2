@@ -1,0 +1,8 @@
+FROM centos:centos8.3.2011
+
+COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
