@@ -1,4 +1,4 @@
-FROM chaincrucial/nym-base:stage2
+FROM chaincrucial/nym-base:centos-stage1
 
 RUN WASMD_VERSION=v0.14.1 && \
     BECH32_PREFIX=hal && \
