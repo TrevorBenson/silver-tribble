@@ -1,4 +1,4 @@
-name: Image base Stage2
+name: Image node Stage1
 
 on:
   push:
@@ -16,15 +16,15 @@ jobs:
         docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
     - name: Compiling new node software
       run: |
-        docker build . --file containers/nym-base/stage2 --compress --tag chaincrucial/nym-base:stage2
-    - name: docker push stage 2
+        docker build . --file containers/nym-node/stage1 --compress --tag chaincrucial/nym-node:stage1
+    - name: docker push node stage 1
       run: |
-        docker push chaincrucial/nym-base:stage2
-    - name: docker dispatch stage 3
+        docker push chaincrucial/nym-node:stage1
+    - name: docker dispatch stage 2
       run: |
         curl -XPOST \
         -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
         -H 'Accept: application/vnd.github.everest-preview+json' \
         -H 'Content-Type: application/json' \
-        https://api.github.com/repos/TrevorBenson/silver-tribble/actions/workflows/image-base-stage3.yml/dispatches \
+        https://api.github.com/repos/TrevorBenson/silver-tribble/actions/workflows/image-node-stage2.yml/dispatches \
         --data '{"ref": "main"}'
