@@ -1,4 +1,4 @@
-name: Image base Stage1
+name: Image base CentOS Stage1
 
 on:
   workflow_dispatch:
@@ -18,7 +18,7 @@ jobs:
         docker build . --file containers/nym-base/stage1 --compress --tag chaincrucial/nym-base:stage1
     - name: container push base stage 1
       run: |
-        docker push chaincrucial/nym-base:stage1
+        docker push chaincrucial/nym-base-centos:stage1
     - name: container trigger dispatch node stage 1
       run: |
         curl -XPOST \
