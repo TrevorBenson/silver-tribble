@@ -4,4 +4,6 @@ RUN rustup update && \
     git clone https://github.com/nymtech/nym.git && \
     cd nym && \
     git checkout tags/v0.10.0 && \
-    cargo build --release
+    cargo build --release && \
+    pwd && \
+    ls target/release/
