@@ -25,6 +25,6 @@ jobs:
         -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
         -H 'Accept: application/vnd.github.everest-preview+json' \
         -H 'Content-Type: application/json' \
-        https://api.github.com/repos/TrevorBenson/silver-tribble/actions/workflows/image-base-stage2.yml/dispatches \
+        https://api.github.com/repos/TrevorBenson/silver-tribble/actions/workflows/image-node-stage1.yml/dispatches \
         --data '{"ref": "main"}'
         
