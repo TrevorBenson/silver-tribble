@@ -1,8 +1,8 @@
 FROM alpine:3.13
 
-COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
-COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
-COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
-COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
-COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
-COPY --from=chaincrucial/nym-node:stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:alpine-stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:alpine-stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:alpine-stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:alpine-stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:alpine-stage1  /nym/target/release/nym-client /usr/local/bin/
+COPY --from=chaincrucial/nym-node:alpine-stage1  /nym/target/release/nym-client /usr/local/bin/
