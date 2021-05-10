@@ -3,7 +3,7 @@ name: Image CentOS node Stage1
 on:
   push:
     paths:
-      - 'containers/nym-base/nym-node-latest.txt'
+      - 'containers/nym-node/latest.txt'
   workflow_dispatch:
 
 jobs:
