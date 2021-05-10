@@ -1,6 +1,9 @@
 name: Image CentOS node Stage2
 
 on:
+  push:
+    paths:
+      - 'containers/nym-node/centos-stage2'
   workflow_dispatch:
 
 jobs:
