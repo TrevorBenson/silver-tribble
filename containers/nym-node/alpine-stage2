@@ -1,5 +1,7 @@
 FROM alpine:3.13
 
+RUN mkdir -pv /usr/local/bin
+
 COPY --from=chaincrucial/nym-node:alpine-stage1 /nym/target/release/nym-client /usr/local/bin/
 COPY --from=chaincrucial/nym-node:alpine-stage1 /nym/target/release/nym-gateway /usr/local/bin/
 COPY --from=chaincrucial/nym-node:alpine-stage1 /nym/target/release/nym-mixnode /usr/local/bin/
