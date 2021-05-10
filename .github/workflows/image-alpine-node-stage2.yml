@@ -1,0 +1,22 @@
+name: Image Alpine node Stage2
+
+on:
+  push:
+    paths:
+      - 'containers/nym-node/alpine-stage2'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: container login
+      run: |
+        docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+    - name: Compiling new Alpine node software
+      run: |
+        docker build . --file containers/nym-node/alpine-stage2 --compress --tag chaincrucial/nym-node:alpine-stage2
+    - name: docker push Alpine node stage 2
+      run: |
+        docker push chaincrucial/nym-node:alpine-stage2
