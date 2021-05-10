@@ -16,10 +16,10 @@ jobs:
     - name: Installing dependencies and build tools
       run: |
         docker build . --file containers/nym-base/stage1 --compress --tag chaincrucial/nym-base:stage1
-    - name: container push stage 1
+    - name: container push base stage 1
       run: |
         docker push chaincrucial/nym-base:stage1
-    - name: container trigger dispatch stage 2
+    - name: container trigger dispatch node stage 1
       run: |
         curl -XPOST \
         -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
@@ -27,4 +27,11 @@ jobs:
         -H 'Content-Type: application/json' \
         https://api.github.com/repos/TrevorBenson/silver-tribble/actions/workflows/image-node-stage1.yml/dispatches \
         --data '{"ref": "main"}'
-        
+    - name: container trigger dispatch validator stage 1
+      run: |
+        curl -XPOST \
+        -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+        -H 'Accept: application/vnd.github.everest-preview+json' \
+        -H 'Content-Type: application/json' \
+        https://api.github.com/repos/TrevorBenson/silver-tribble/actions/workflows/image-node-stage1.yml/dispatches \
+        --data '{"ref": "main"}'
